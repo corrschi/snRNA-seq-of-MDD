@@ -1,4 +1,4 @@
-#######---------1.BH of genes----------########
+#######---------calculate group DEGs and adjust pvalue by BH method----------########
 library(Seurat)
 library(dplyr)
 
@@ -10,8 +10,8 @@ all_degs <- lapply(clusters, function(cluster) {
   
   degs <- FindMarkers(
     subset_data,
-    ident.1 = "Suicide",  # 组1
-    ident.2 = "Control",  # 组2
+    ident.1 = "Suicide",  
+    ident.2 = "Control",  
     min.pct = 0.01,
     logfc.threshold = 0.01,
     test.use = "wilcox" 
