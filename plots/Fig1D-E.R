@@ -4,19 +4,18 @@ inhib <- subset(MERGE,subset=Anno.chi %in% c("Inhib_c1", "Inhib_c2_VIP", "Inhib_
 
 Idents(inhib) <- 'Anno.chi'
 
-png(paste0( "Fig1D.Dot-抑制性神经元.png"),    width = 5, height = 4, units = "in", res = 400)
+png(paste0( "Fig1D.Dot-inhib.png"),    width = 5, height = 4, units = "in", res = 400)
 DotPlot(inhib, 
         # split.by="response",
         features = rev(c("CCK","CALB2","VIP","SST","PVALB","SLC32A1","DLX1","DLX2", "DLX5", "DLX6"))) +  
-                   # 基因顺序逆向
   coord_flip() +
   theme_bw() +
   theme(
     panel.grid = element_blank(),
-    axis.text.y = element_text(angle = 0, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"),  # 修改纵轴文字
-    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"), # 修改横轴文字
-    legend.text = element_text(size = 10, family = "Times New Roman"),                                      # 修改图例文字
-    legend.title = element_text(size = 12, family = "Times New Roman")                                     # 修改图例标题
+    axis.text.y = element_text(angle = 0, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"), 
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"),
+    legend.text = element_text(size = 10, family = "Times New Roman"),                                     
+    legend.title = element_text(size = 12, family = "Times New Roman")                                   
   ) +
   labs(x = NULL, y = NULL) +
   guides(size = guide_legend(order = 3)) +
@@ -33,20 +32,20 @@ excit <- subset(MERGE,subset=Anno.chi%in%c("Ex_c1_L2_L4", "Ex_c2_L2_L4", "Ex_c3_
 
 Idents(excit) <- 'Anno.chi'
 
-png(paste0("Fig1E.Dot-兴奋性神经元.png"), width = 5, height = 4, units = "in", res = 400)
+png(paste0("Fig1E.Dot-excit.png"), width = 5, height = 4, units = "in", res = 400)
 DotPlot(excit, 
         # split.by="response",
         features = rev(c( "CUX2","RASGRF2","PVRL2", "RORB","SULF2",  "PCP4",  "HTR2C","TOX",
-                          "ETV1","RXFP1", "FOXP2","NR4A2", "SYNPR","TLE4","NTNG2"))) +  # 基因顺序逆向排列
+                          "ETV1","RXFP1", "FOXP2","NR4A2", "SYNPR","TLE4","NTNG2"))) +  
   
   coord_flip() +
   theme_bw() +
   theme(
     panel.grid = element_blank(),
-    axis.text.y = element_text(angle = 0, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"),  # 修改纵轴文字
-    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"), # 修改横轴文字
-    legend.text = element_text(size = 10, family = "Times New Roman"),                                      # 修改图例文字
-    legend.title = element_text(size = 12, family = "Times New Roman")                                     # 修改图例标题
+    axis.text.y = element_text(angle = 0, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"), 
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.95, size = 10, family = "Times New Roman"), 
+    legend.text = element_text(size = 10, family = "Times New Roman"),                                     
+    legend.title = element_text(size = 12, family = "Times New Roman")                                     
   ) +
   labs(x = NULL, y = NULL) +
   guides(size = guide_legend(order = 3)) +
