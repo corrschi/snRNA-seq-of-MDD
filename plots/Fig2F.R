@@ -1,18 +1,18 @@
-## Plot Vln
+## Plot Vlnplot of Fig2F
 # 2.1 astro.ptn
 library(ggplot2)
 test_seuratobj <- subset(MERGE ,idents='Astro')
-test_seuratobj$group%>%table #查看分组排列
+test_seuratobj$group%>%table 
 
-# singlecell_gene_test #自定义函数
+
 A <- singlecell_gene_test(test_seuratobj,                     
                           genes.use = c('PTN'),
                           group.by = 'group',
-                          comp = c("Control", "Suicide")) ## 默认 only_postive = F，计算所有细胞
+                          comp = c("Control", "Suicide"))
 
-# 显示 p-value
 anno_pvalue <- format(A$p_val, scientific = T, digits = 3)
 anno_sig <- anno_pvalue
+
 plots_violins <- VlnPlot(test_seuratobj,                          
                          pt.size = 0.0001,                         
                          group.by = "group",                         
@@ -31,7 +31,7 @@ for (i in 1:length(plots_violins)) {
       axis.text.y = element_text(size = 10, color = "black", family = "Times New Roman"),          
       axis.title.y = element_text(size = 12, color = "black", family = "Times New Roman"),          
       axis.title.x = element_blank(),          
-      plot.title = element_text(size = 14, color = "black", family = "Times New Roman", hjust = 0),  # 设置标题字体
+      plot.title = element_text(size = 14, color = "black", family = "Times New Roman", hjust = 0), 
       legend.position = 'none'
     ) +    
     scale_y_continuous(expand = expansion(mult = c(0.05, 0.1))) +    
@@ -44,19 +44,17 @@ for (i in 1:length(plots_violins)) {
 }
 
 p <- CombinePlots(plots_violins)
-ggsave("Fig2F.astro_PTN.png", p, width = 3, height = 3)
+ggsave("Fig2F.astro_PTN_ligands.png", p, width = 3, height = 3)
 
 # 2.2 Excit_neuron.PTPRZ1
 test_seuratobj <- subset(MERGE ,idents='Excit_neuron')
 test_seuratobj$group%>%table
 
-# singlecell_gene_test #自定义函数
 A <- singlecell_gene_test(test_seuratobj,                     
                           genes.use = c('PTPRZ1','SDC3',"SDC4","NCL","ALK"),
                           group.by = 'group',
                           comp = c("Control", "Suicide"))
 
-# 显示 p-value
 anno_pvalue <- format(A$p_val, scientific = T, digits = 3)
 anno_sig <- anno_pvalue
 plots_violins <- VlnPlot(test_seuratobj,                          
@@ -90,4 +88,5 @@ for (i in 1:length(plots_violins)) {
 }
 
 p <- CombinePlots(plots_violins,ncol=5)
-ggsave("Fig2F.excit_neuron_PTPRZ1系列.png", p, width = 15, height = 3)
+ggsave("Fig2F.excit_neuron_receptors.png", p, width = 15, height = 3)
+
