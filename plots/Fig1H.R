@@ -61,18 +61,4 @@ ggplot(data=dat_plot@meta.data, aes(x=sample_num, fill=cluster)) +
     legend.title = element_text(size=16, family="Times New Roman"), 
     plot.title = element_text(size=16, family="Times New Roman", face="bold")  
   )
-
 dev.off()
-
-
-
-######------3.export Source data---------#####
-dat <- MERGE
-dat$cluster <- factor(dat$Anno.chi1,levels = c("Excit_neuron", "Inhib_neuron", "Oligo", "Astro", "Micro/Macro", 
-                                               "OPC", "Endo"))
-Idents(dat) <- "cluster"
-# dat$sample <- dat$sample %>% as.character()
-dat$group <- factor(dat$group,levels= c("Control","Suicide"))
-
-dat <- dat@meta.data[,c("cluster","group","sample")]
-write.csv(dat, file = "Fig1H.Source data.csv", row.names =T)
