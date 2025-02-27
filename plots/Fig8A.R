@@ -4,7 +4,7 @@ library(ggpubr)
 load("./barplot_data.RData")
 
 p <- ggbarplot(barplot_data, x="Pathway", y="-LogP", 
-               fill = "#FFB6C1", ##FFB6C1粉色  #"orchid"#紫色
+               fill = "#FFB6C1", 
                color = "white", 
                orientation = "horiz",   
                palette = "nejm",  
