@@ -11,19 +11,19 @@ ggboxplot(dat_plot,
           add = "point", outlier.colour = NULL) +
   facet_wrap(~ variable, scales = "free_x", ncol = 7) +  # 按 cluster 分面
   theme(
-    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1, family = "Times New Roman"),  # x 轴刻度文字
-    axis.text.y = element_text(size = 12, family = "Times New Roman"),  # y 轴刻度文字
-    axis.title.x = element_text(size = 14, family = "Times New Roman"),  # x 轴标题
-    axis.title.y = element_text(size = 14, family = "Times New Roman"),  # y 轴标题
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1, family = "Times New Roman"),  
+    axis.text.y = element_text(size = 12, family = "Times New Roman"), 
+    axis.title.x = element_text(size = 14, family = "Times New Roman"),  
+    axis.title.y = element_text(size = 14, family = "Times New Roman"),  
     legend.position = "right",  # 将图例位置设置为右侧
-    legend.text = element_text(size = 12, family = "Times New Roman"),  # 图例文字
-    legend.title = element_text(size = 14, family = "Times New Roman"),  # 图例标题
-    strip.text = element_text(size = 12, family = "Times New Roman")  # 分面标题文字
+    legend.text = element_text(size = 12, family = "Times New Roman"),  
+    legend.title = element_text(size = 14, family = "Times New Roman"), 
+    strip.text = element_text(size = 12, family = "Times New Roman") 
   ) +
   stat_compare_means(aes(group = group), 
-                     label = "p.signif",  # 显示显著性符号
+                     label = "p.signif",  
                      method = "wilcox.test",
-                     label.y = c(0.8)) +  # 调整显著性符号的 y 位置
+                     label.y = c(0.8)) + 
   scale_colour_manual(values = c("#264653", "#E69F00")) +
   labs(x = "", y = "percent")
 
@@ -34,8 +34,8 @@ p_values.BH <- compare_means(percent ~ group,
                              data = dat_plot, 
                              group.by = "variable", 
                              method = "wilcox.test",
-                             p.adjust.method = "BH")  # 选择 FDR 校正方法，默认是holm
+                             p.adjust.method = "BH") 
 
 
 print(p_values.BH)
-write.csv(p_values.BH,file='Fig1g.p_values.BH.csv')
+write.csv(p_values.BH,file='Fig1G.p_values.BH.csv')
