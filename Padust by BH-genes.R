@@ -15,7 +15,7 @@ ggboxplot(dat_plot,
     axis.text.y = element_text(size = 12, family = "Times New Roman"), 
     axis.title.x = element_text(size = 14, family = "Times New Roman"),  
     axis.title.y = element_text(size = 14, family = "Times New Roman"),  
-    legend.position = "right",  # 将图例位置设置为右侧
+    legend.position = "right", 
     legend.text = element_text(size = 12, family = "Times New Roman"),  
     legend.title = element_text(size = 14, family = "Times New Roman"), 
     strip.text = element_text(size = 12, family = "Times New Roman") 
