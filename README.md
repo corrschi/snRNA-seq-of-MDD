@@ -5,7 +5,7 @@ Astrocytes are closely linked to depression, and the prefrontal cortex (PFC) is 
 Red Hat 8.5.0-4 R version 4.3.3 Python version 3.10.13
 
 ## Install software
-### Install R package Seurat v2.3.4
+### Install R package Seurat v4.4.0
 source("https://z.umn.edu/archived-seurat")
 ### Install software GSEA v3.0
 Download from https://www.gsea-msigdb.org/gsea/downloads.jsp	
